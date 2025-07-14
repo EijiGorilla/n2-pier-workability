@@ -110,8 +110,25 @@ function MapPanel() {
   ];
 
   useEffect(() => {
-    if (mapView) {
+    if (contractPackage === "N-01") {
+      arcgisMap?.view
+        .goTo({
+          center: [120.7656353, 14.9174688],
+          zoom: 12,
+        })
+        .catch((err) => {
+          // A rejected view indicates a fatal error making it unable to display.
+          // Use the errback function to handle when the view doesn't load properly
+          console.error("MapView rejected:", err);
+        });
+    } else {
       zoomToLayer(pileCapLayer, arcgisMap);
+    }
+  }, [contractPackage]);
+
+  useEffect(() => {
+    if (mapView) {
+      // zoomToLayer(pileCapLayer, arcgisMap);
       arcgisMap.view.ui.add(arcgisActionPanelExpand, "top-right");
       arcgisMap.map.add(prowLayer);
       arcgisMap.map.add(lotLayer);
@@ -324,7 +341,7 @@ function MapPanel() {
         zoom="12"
         center={home_center}
         rotation={home_rotation}
-        scale={home_scale}
+        // scale={home_scale}
         onarcgisViewReadyChange={(event) => {
           setMapView(event.target);
         }}

@@ -216,7 +216,7 @@ export const util_marker_size = "20px";
 
 // Main Map:------------------------------------
 export const home_rotation = 360; // 330
-export const home_center = [120.9, 14.7832299];
+export const home_center = [120.7656353, 14.9174688];
 export const home_scale = 292400;
 
 export const primaryLabelColor = "#9ca3af";
