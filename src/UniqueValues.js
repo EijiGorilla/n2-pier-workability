@@ -38,6 +38,7 @@ export const color_workable = "#38A800";
 export const color_nonworkable = "#FF0000";
 export const color_completed = "#0070ff";
 export const color_workable_obstruction = [152, 230, 0, 0.5];
+export const color_completed_obstruction = [0, 112, 255, 0.5]; // [152, 230, 0, 0.5];
 export const color_nonworkable_obstruction = [255, 0, 0, 0.4];
 export const color_nonworkable_obstruction_struc = [104, 104, 104, 0.4];
 export const workable_piers_uniqueValueInfos = [
@@ -82,7 +83,18 @@ export const yoffset_pierNumber = 13;
 // Strip Map Layer
 export const strip_map_uniqueValueInfos = [
   {
-    value: "No",
+    value: "Non-Workable",
+    label: "Non-Workable",
+    symbol: new SimpleFillSymbol({
+      color: color_nonworkable_obstruction,
+      outline: {
+        width: 0.8,
+        color: "black",
+      },
+    }),
+  },
+  {
+    value: "Workable",
     label: "Workable",
     symbol: new SimpleFillSymbol({
       color: color_workable_obstruction,
@@ -93,13 +105,13 @@ export const strip_map_uniqueValueInfos = [
     }),
   },
   {
-    value: "Yes",
-    label: "Non-Workable",
+    value: "Completed",
+    label: "Completed",
     symbol: new SimpleFillSymbol({
-      color: color_nonworkable_obstruction,
+      color: color_completed_obstruction,
       outline: {
         width: 0.8,
-        color: "black",
+        color: "grey",
       },
     }),
   },

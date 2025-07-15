@@ -127,8 +127,17 @@ export const prowLayer = new FeatureLayer({
 prowLayer.listMode = "hide";
 
 /* Strip Map Index  */
+const defaultFill = new SimpleFillSymbol({
+  color: [169, 169, 169, 0.7],
+  outline: {
+    width: 0.8,
+    color: "grey",
+  },
+});
+
 const stripMapRenderer = new UniqueValueRenderer({
-  field: "NonWorkable",
+  field: "Workability",
+  defaultSymbol: defaultFill,
   uniqueValueInfos: strip_map_uniqueValueInfos,
 });
 

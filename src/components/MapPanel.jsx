@@ -107,6 +107,10 @@ function MapPanel() {
       layer: utilityPointLayer,
       title: "Utility Work (Incomplete)",
     },
+    {
+      layer: stripMapLayer,
+      title: "Strip Map",
+    },
   ];
 
   useEffect(() => {
